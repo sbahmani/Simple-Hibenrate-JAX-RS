@@ -1,3 +1,5 @@
+addons:
+  postgresql: "10"
 services:
  - postgresql
 before_script:
