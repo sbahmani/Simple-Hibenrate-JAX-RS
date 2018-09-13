@@ -1,14 +1,13 @@
+language: java
+script: mvn package
+before_script:
+  - psql -c 'create database HJSTest;' -U postgres
+  - sed -i 's/bahmanz//' src/test/resources/hibernate.cfg.xml
 addons:
   postgresql: "10"
   apt:
     packages:
     - postgresql-10
     - postgresql-client-10
-before_script:
-  - ifconfig
-  - psql -c 'create database HJSTest;' -U postgres
-  - sed -i 's/bahmanz//' src/test/resources/hibernate.cfg.xml
 services:
   - postgresql
-language: java
-script: mvn package
