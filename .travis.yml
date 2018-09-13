@@ -1,5 +1,5 @@
-addons:
-  postgresql: "10"
+services:
+  - postgresql
 before_script:
   - ifconfig
   - psql -c 'create database HJSTest;' -U postgres
