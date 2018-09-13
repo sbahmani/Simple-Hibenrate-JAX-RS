@@ -1,7 +1,7 @@
 language: java
 script: mvn package
 before_script:
-  - psql -c 'create database HJSTest;' -U postgres
+  - psql -c 'create database hjstest;' -U postgres
   - sed -i 's/bahmanz//' src/test/resources/hibernate.cfg.xml
 addons:
   postgresql: "9.6"
