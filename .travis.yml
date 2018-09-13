@@ -4,10 +4,6 @@ before_script:
   - psql -c 'create database HJSTest;' -U postgres
   - sed -i 's/bahmanz//' src/test/resources/hibernate.cfg.xml
 addons:
-  postgresql: "10"
-  apt:
-    packages:
-    - postgresql-10
-    - postgresql-client-10
+  postgresql: "9.6"
 services:
   - postgresql
