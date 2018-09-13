@@ -1,5 +1,5 @@
 <html>
     <body>
-        <h2>Start Page!</h2>
+        <h2>Start Student Page!</h2>
     </body>
 </html>

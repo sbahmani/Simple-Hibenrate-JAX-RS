@@ -25,8 +25,10 @@ public class StudentTest {
                 + "	ConstraintViolationImpl{interpolatedMessage='must be a well-formed email address', propertyPath=email, rootBeanClass=class com.github.sbahmani.Student, messageTemplate='{javax.validation.constraints.Email.message}'}\n"
                 + "]");
         s.setEmail("a.ahmadi@gmail.com");
-        StudentDAO.Persist(s);
+        s = StudentDAO.Persist(s);
         assertNotNull(s.getdBId());
+        assertEquals(StudentDAO.LoadByID(s.getdBId()), s);
+        assertEquals(StudentDAO.LoadByEmail("a.ahmadi@gmail.com"), s);
 
         Student s2 = new Student("mamad", "a.ahmadi@gmail.com");
         try {
