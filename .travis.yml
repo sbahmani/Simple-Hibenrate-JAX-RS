@@ -8,5 +8,7 @@ before_script:
   - ifconfig
   - psql -c 'create database HJSTest;' -U postgres
   - sed -i 's/bahmanz//' src/test/resources/hibernate.cfg.xml
+services:
+  - postgresql
 language: java
 script: mvn package
