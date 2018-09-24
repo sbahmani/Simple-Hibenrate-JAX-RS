@@ -1,4 +1,3 @@
-
 package com.github.sbahmani.rest;
 
 import com.github.sbahmani.StudentDAO;
@@ -49,21 +48,21 @@ public class StudentServiceTest extends JerseyTest {
 
     @Before
     public void testAdd() {
-        MultivaluedMap data1 = new MultivaluedHashMap();
+        MultivaluedMap<String, String> data1 = new MultivaluedHashMap<>();
         data1.add("name", "ali");
         data1.add("email", "ali-mail");
         Response post1 = target("student/add").request().post(Entity.form(data1));
         assertEquals(post1.getStatus(), Response.Status.BAD_REQUEST.getStatusCode());
         assertEquals(post1.readEntity(String.class), "not acceptable email: ali-mail");
 
-        MultivaluedMap data2 = new MultivaluedHashMap();
+        MultivaluedMap<String, String> data2 = new MultivaluedHashMap<>();
         data2.add("name", "ali");
         data2.add("email", "ali@mail.com");
         Response post2 = target("student/add").request().post(Entity.form(data2));
         assertEquals(post2.getStatus(), Response.Status.OK.getStatusCode());
         assertTrue(post2.readEntity(String.class).contains("persist with id:"));
 
-        MultivaluedMap data3 = new MultivaluedHashMap();
+        MultivaluedMap<String, String> data3 = new MultivaluedHashMap<>();
         data3.add("name", "ali");
         data3.add("email", "ali@mail.com");
         Response post3 = target("student/add").request().post(Entity.form(data3));
